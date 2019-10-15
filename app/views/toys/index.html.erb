@@ -1,0 +1,26 @@
+<h1>All Toys</h1>
+
+<p id="notice"><%= notice %></p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Posted</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @toys.each do |toy| %>
+    <tr>
+      <td><%= link_to toy.name, toy_path(toy) %></td>
+      <td><%= toy.description %></td>
+      <td><%= "#{toy.date_posted} by #{toy.user}" %></td>
+      <td><%= link_to "Edit", edit_toy_path(toy) %></td>
+      <td><%= link_to "Delete", toy_path(toy), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+<%= link_to "Add toy", new_toy_path %>
+</p>

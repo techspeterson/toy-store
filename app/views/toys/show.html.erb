@@ -1,0 +1,15 @@
+<h1><%= @toy.name %></h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  Posted by <%= @toy.user %> at <%= @toy.date_posted %>
+</p>
+
+<p>
+  <%= @toy.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_toy_path(@toy) %> | <%= link_to "Back", toys_path %>
+</p>

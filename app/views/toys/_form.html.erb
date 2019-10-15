@@ -1,0 +1,35 @@
+<%= form_with(model: toy, local: true) do |f| %>
+  <% if toy.errors.any? %>
+    <div id="error_explanation">
+      <h2>Toy not saved due to <%= pluralize(toy.errors.count, "error") %>:</h2>
+      <ul>
+        <% toy.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :user %><br>
+      <% if editing %>
+        <%= toy.user %>
+      <% else %>
+        <%= f.text_field :user %>
+      <% end %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

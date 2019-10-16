@@ -1,9 +1,9 @@
-<h1><%= @toy.name %></h1>
+<h1><%= image_tag(@toy.img_url) %><%= @toy.name %></h1>
 
 <p id="notice"><%= notice %></p>
 
 <p>
-  Posted by <%= @toy.user %> at <%= @toy.date_posted %>
+  Posted by <%= @user.email %> at <%= @toy.date_posted %>
 </p>
 
 <p>

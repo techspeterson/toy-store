@@ -1,9 +1,10 @@
-<h1>All Toys</h1>
+<h1>Pokemon Center: All Toys</h1>
 
 <p id="notice"><%= notice %></p>
 
 <table>
   <tr>
+    <th></th>
     <th>Name</th>
     <th>Description</th>
     <th>Posted</th>
@@ -12,9 +13,10 @@
 
   <% @toys.each do |toy| %>
     <tr>
+      <td><%= image_tag(toy.img_url) %></td>
       <td><%= link_to toy.name, toy_path(toy) %></td>
       <td><%= toy.description %></td>
-      <td><%= "#{toy.date_posted} by #{toy.user}" %></td>
+      <td><%= "#{toy.date_posted} by #{User.find(toy.user_id).email}" %></td>
       <td><%= link_to "Edit", edit_toy_path(toy) %></td>
       <td><%= link_to "Delete", toy_path(toy), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>

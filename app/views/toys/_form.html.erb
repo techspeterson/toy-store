@@ -28,10 +28,15 @@
     <p class="field">
       <strong><%= f.label :user %>: </strong>
       <% if editing %>
-        <%= User.find(toy.user_id).email %>
+        <%= toy.user.email %>
       <% else %>
         <%= f.select :user_id, options_for_select( User.order('email').all.collect { |u| [u.email, u.id] } ) %>
       <% end %>
+    </p>
+
+    <p class="field">
+      <strong><%= f.label :manufacturer %>: </strong>
+      <%= f.select :manufacturer_id, options_for_select( Manufacturer.order('name').all.collect { |u| [u.name, u.id] }, selected: toy.manufacturer_id ) %>
     </p>
 
     <div class="actions">

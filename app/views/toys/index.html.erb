@@ -7,6 +7,7 @@
     <th></th>
     <th>Name</th>
     <th>Description</th>
+    <th>Manufacturer</th>
     <th>Posted</th>
     <th colspan="2"></th>
   </tr>
@@ -16,7 +17,8 @@
       <td><%= image_tag(toy.img_url) %></td>
       <td><%= link_to toy.name, toy_path(toy) %></td>
       <td><%= toy.description %></td>
-      <td><%= "#{toy.date_posted} by #{User.find(toy.user_id).email}" %></td>
+      <td><%= toy.manufacturer.name %></td>
+      <td><%= "#{toy.date_posted} by #{toy.user.email}" %></td>
       <td><%= link_to "Edit", edit_toy_path(toy) %></td>
       <td><%= link_to "Delete", toy_path(toy), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>

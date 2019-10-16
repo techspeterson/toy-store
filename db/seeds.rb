@@ -160,11 +160,16 @@ pokedex = {
   "Mew" => "151"
 }
 
+5.times do
+  location = Faker::Games::Pokemon.location
+  Manufacturer.create(name: "Pokemon Center, #{location}", location: location)
+end
+
 10.times do
   User.create(email: Faker::Internet.email, password: Faker::Internet.password)
 end
 
 20.times do
   pokemon_name = Faker::Games::Pokemon.name
-  Toy.create(name: "#{pokemon_name} Plush", description:"A#{"n" if pokemon_name[0].match(/[AEIOU]/)} #{pokemon_name} stuffed toy", date_posted:Faker::Date.in_date_period, user_id:User.all.sample.id, img_url:"https://www.serebii.net/pokedex-xy/icon/" + pokedex[pokemon_name] + ".png")
+  Toy.create(name: "#{pokemon_name} Plush", description:"A#{"n" if pokemon_name[0].match(/[AEIOU]/)} #{pokemon_name} stuffed toy", date_posted:Faker::Date.in_date_period, user_id: User.all.sample.id, img_url:"https://www.serebii.net/pokedex-xy/icon/" + pokedex[pokemon_name] + ".png", manufacturer_id: Manufacturer.all.sample.id)
 end

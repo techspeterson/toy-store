@@ -3,7 +3,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  Posted by <%= @user.email %> at <%= @toy.date_posted %>
+  Posted by <%= @toy.user.email %> at <%= @toy.date_posted %><br>
+  Manufactured by <%= @toy.manufacturer.name %>
 </p>
 
 <p>

@@ -7,7 +7,6 @@ class ToysController < ApplicationController
   end
 
   def show
-    @user = User.find(@toy.user_id)
   end
 
   def new
@@ -59,6 +58,6 @@ class ToysController < ApplicationController
     end
 
     def toy_params
-      params.require(:toy).permit(:name, :description, :user_id, :img_url)
+      params.require(:toy).permit(:name, :description, :user_id, :img_url, :manufacturer_id)
     end
 end

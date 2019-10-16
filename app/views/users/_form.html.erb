@@ -1,0 +1,27 @@
+<%= form_with(model: user, local: true) do |f| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2>user not saved due to <%= pluralize(user.errors.count, "error") %>:</h2>
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p class="field">
+    <strong><%= f.label :email %>: </strong>
+    <%= f.text_field :email %>
+  </p>
+
+  <p class="field">
+    <strong><%= f.label :password %>: </strong>
+    <%= f.password_field :password %>
+  </p>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
